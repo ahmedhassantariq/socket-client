@@ -41,14 +41,14 @@ class _UserListState extends State<UserList> {
     //SOCKET EVENTS
     // --> listening for connection
     socket.on('connect', (data) {
-      print(socket.id);
+      // print(socket.id);
       _textEditingController.text=socket.id!;
-      print("Connected");
+      // print("Connected");
     });
 
     //listen for incoming messages from the Server.
     socket.on('message', (data) {
-      print(data['sentAt']);
+      // print(data['sentAt']);
       setState(() {
         _messages.add(data['message']);
       });
@@ -56,7 +56,7 @@ class _UserListState extends State<UserList> {
 
     //listens when the client is disconnected from the Server
     socket.on('disconnect', (data) {
-      print('disconnect $data}');
+      // print('disconnect $data}');
     });
 
   }
@@ -72,8 +72,6 @@ class _UserListState extends State<UserList> {
     );
   }
 
-  final TextEditingController _aliceController = TextEditingController();
-  final StreamController _streamController = StreamController();
   final ScrollController _scrollController = ScrollController();
   final FocusNode _focusNode = FocusNode(canRequestFocus: true);
 
@@ -84,7 +82,7 @@ class _UserListState extends State<UserList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Chat"),
+        title: const Text("Chat"),
         actions: [
 
           TextButton(
@@ -95,13 +93,13 @@ class _UserListState extends State<UserList> {
                   _messages.clear();
                 });
               },
-              child: Text("Disconnect")),
+              child: const Text("Disconnect")),
           TextButton(
               onPressed: () async {
                 socket.connect();
 
               },
-              child: Text("Connect")),
+              child: const Text("Connect")),
 
         ],
       ),
@@ -129,7 +127,7 @@ class _UserListState extends State<UserList> {
                     }
                     _focusNode.requestFocus();
                   },
-                  icon: Icon(Icons.send),
+                  icon: const Icon(Icons.send),
                 )
               ),
             ),
