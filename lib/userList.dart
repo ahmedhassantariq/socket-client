@@ -27,8 +27,8 @@ class _UserListState extends State<UserList> {
   // }
   //Socket connection
   void initializeSocket() {
-    // const host = "https://socket-server-production-4d79.up.railway.app/";
-    const host = "http://localhost:8080";
+    const host = "https://socket-server-production-4d79.up.railway.app/";
+    // const host = "http://localhost:8080";
 
     socket = io(host,OptionBuilder()
         .setTransports(['websocket'])
