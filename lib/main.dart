@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sockerio/userList.dart';
+
+import 'connectionScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +15,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Socket IO',
-
-      home: UserList(),
+      home: ConnectionScreen(),
     );
   }
 }
